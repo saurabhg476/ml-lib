@@ -14,9 +14,9 @@ def model(X, variance):
 
     #mean normalization
     mean = X.mean(axis=0,keepdims=True)
-    range = X.ptp(axis=0).reshape(1,n)
+    range_ = X.ptp(axis=0).reshape(1,n)
 
-    X = (X - mean)/range
+    X = (X - mean)/range_
 
     sigma = (1/m) *np.dot(X.T,X)
     (u,s,v) = np.linalg.svd(sigma)
@@ -37,10 +37,10 @@ def model(X, variance):
 
 
     ###printing k
-    print(k)
+    #print(k)
     ###printing approximations
     X_approx = np.dot(Z,u_reduce.T)
-    print(X_approx*range + mean)
+    print(X_approx*range_ + mean)
 
     return Z, k
 
