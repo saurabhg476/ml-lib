@@ -1,6 +1,4 @@
-import numpy as np
-import pandas as pd
-import logistic_regression
+from algorithms import logistic_regression
 from sklearn import datasets
 from sklearn import linear_model
 
@@ -14,7 +12,7 @@ y = y[y!=0]
 y = y-1
 
 print(y)
-logistic_regression.model(X,y)
+logistic_regression.model(X, y)
 
 
 

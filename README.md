@@ -3,4 +3,6 @@
 A machine learning library build for learning purposes.
 
 Implemented algorithms:
-Logistic regression
+Logistic Regression
+Pricipal Component Analysis
+K-means clustering
