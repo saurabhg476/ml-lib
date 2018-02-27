@@ -20,7 +20,15 @@ clf = outlier_detection.OutlierDetection()
 clf.model_fit(X)
 prob = clf.predict_proba(X)
 
-print(prob)
+# print(prob)
+# plt.hist(prob,bins=20)
+# plt.title("histogram")
+# plt.show()
+
+
+print(np.median(prob))
+
+
 
 
 

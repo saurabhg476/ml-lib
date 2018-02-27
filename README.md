@@ -6,3 +6,8 @@ Implemented algorithms:
 Logistic Regression
 Pricipal Component Analysis
 K-means clustering
+
+
+To be implemented:
+gradient checking
+
