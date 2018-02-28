@@ -7,10 +7,8 @@ def model(X, y):
     initial_parameters = initialize_parameters(X.shape[1])
     parameters = optimize_parameters(X, y, initial_parameters, compute_cost)
     predictions = predict(X, parameters,0.5)
-    print(np.squeeze(predictions))
-    print(np.squeeze(y))
 
-    print(np.mean((predictions == y).astype(int)))
+    return predictions,parameters
 
 def optimize_parameters(X, y, parameters, cost_function, learning_rate=0.08, iterations=500, plot=False):
 
@@ -90,3 +88,14 @@ def compute_cost(X,y,parameters):
         "db":db
     }
     return cost, dparameters
+
+
+class LogisticRegression:
+
+    def __init__(self):
+        self.parameters = None
+        pass
+
+    def model(self):
+        pass
+

@@ -1,19 +1,7 @@
 import numpy as np
 
-def model(R,Y,X):
-    '''
-
-    :param R: r(i,j) == 1 if user j has rated movie i otherwise 0
-    :param Y: y(i,j) is the rating of movie i by user j if r(i,j) =1
-    :param X: X(i,:) is feature vector for movie i
-    :return:
-    '''
-
-    pass
-
-
 def initialize(num_users,num_features):
-    initial_theta = np.zeros(num_users,num_features)
+    initial_theta = np.zeros((num_users,num_features))
     return initial_theta
 
 def optimize(R,Y,X,initial_theta,num_iter,learning_rate):
@@ -24,8 +12,9 @@ def optimize(R,Y,X,initial_theta,num_iter,learning_rate):
     :param initial_theta: shape (num_users,num_features)
     :param num_iter:
     :param learning_rate:
-    :return:
+    :return: optimized parameters
     '''
+    #TODO: insert regularization
     num_users = R.shape[1]
     theta = initial_theta
 
@@ -43,16 +32,17 @@ class ContentBasedRecommendation:
     def __init__(self):
         self.num_users = None
         self.num_features = None
+        self.num_movies = None
 
-
-    def model(self,R,Y,X):
+    def model(self,R,Y,X,max_iter,learning_rate):
         self.num_users = Y.shape[1]
-        self.num_features = X.shape[1]
+        self.num_movies = X.shape[0]
 
         #adding intercept feature
-        X = np.c_[np.ones(self.num_users),X]
+        X = np.c_[np.ones(self.num_movies),X]
+        self.num_features = X.shape[1]
         initial_theta = initialize(self.num_users,self.num_features)
 
-        theta = optimize(R,Y,X,initial_theta,100,0.01)
+        theta = optimize(R,Y,X,initial_theta,max_iter,learning_rate)
         return theta
 
