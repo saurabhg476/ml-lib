@@ -6,6 +6,8 @@ Implemented algorithms:
 Logistic Regression
 Pricipal Component Analysis
 K-means clustering
+outlier detection
+collaborative filtering
 
 
 To be implemented:
